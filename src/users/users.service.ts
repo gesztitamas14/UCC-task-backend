@@ -20,4 +20,8 @@ export class UsersService {
       passwordResetExpires: expires,
     });
   }
+
+  async findById(id: number): Promise<User> {
+      return this.usersRepository.findOneBy({ id }) as any;
+  }
 }

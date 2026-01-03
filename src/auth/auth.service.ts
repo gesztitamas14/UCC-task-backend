@@ -25,6 +25,7 @@ export class AuthService {
     const payload = { email: user.email, sub: user.id, role: user.role };
     return {
       access_token: this.jwtService.sign(payload),
+      user_id: user.id
     };
   }
 
@@ -40,7 +41,7 @@ export class AuthService {
 
     await this.usersService.setPasswordResetToken(user.id, token, expires);
 
-    const resetLink = `https://yourfrontend.com/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
+    const resetLink = `localhost:4200/set-new-password?token=${token}&email=${encodeURIComponent(email)}`;
     await this.sendResetEmail(email, resetLink);
 
     return { message: 'If the email exists, a reset link has been sent' };

@@ -4,6 +4,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
 import { UsersModule } from './users/users.module';
+import { ChatModule } from './chat/chat.module';
+import { HelpdeskChatModule } from './helpdesk-chat/helpdesk-chat.module';
+import { KnowledgeBaseModule } from './knowledge-base/knowledge-base.module';
+import { BotMatchingService } from './bot-matching/bot-matching.service';
 
 @Module({
   imports: [
@@ -19,12 +23,16 @@ import { UsersModule } from './users/users.module';
         password: config.get<string>('DB_PASS'),
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     AuthModule,
     EventsModule,
     UsersModule,
+    ChatModule,
+    HelpdeskChatModule,
+    KnowledgeBaseModule,
   ],
+  providers: [BotMatchingService],
 })
 export class AppModule {}
