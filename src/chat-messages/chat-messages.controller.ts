@@ -1,8 +1,9 @@
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
-import { ChatService } from './chat.service';
-import { CreateChatMessageDto } from './dto/chat.dto';
-import { ChatMessage } from './entities/chat.entity';
+import { ChatService } from './chat-messages.service';
+import { CreateChatMessageDto } from './dto/chat-messages.dto';
+
 import { HelpdeskChatService } from 'src/helpdesk-chat/helpdesk-chat.service';
+import { ChatMessage } from './entities/chat-messages.entity';
 
 
 @Controller('api/chat')

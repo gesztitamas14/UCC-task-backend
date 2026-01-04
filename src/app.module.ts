@@ -4,10 +4,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
 import { UsersModule } from './users/users.module';
-import { ChatModule } from './chat/chat.module';
+
 import { HelpdeskChatModule } from './helpdesk-chat/helpdesk-chat.module';
 import { KnowledgeBaseModule } from './knowledge-base/knowledge-base.module';
 import { BotMatchingService } from './bot-matching/bot-matching.service';
+import { ChatModule } from './chat-messages/chat-messages.module';
 
 @Module({
   imports: [

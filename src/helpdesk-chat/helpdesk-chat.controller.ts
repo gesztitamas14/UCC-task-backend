@@ -10,6 +10,7 @@ export class HelpdeskChatController {
   async getChats() {
     return this.helpdeskChatService.getAllChats();
   }
+  
   @Patch(':id/open')
   async openChat(@Param('id') id: string) {
     return this.helpdeskChatService.updateStatus(+id, ChatStatus.HUMAN);

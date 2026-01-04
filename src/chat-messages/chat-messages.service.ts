@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, MoreThan } from 'typeorm';
-import { ChatMessage } from './entities/chat.entity';
-import { CreateChatMessageDto } from './dto/chat.dto';
+import { ChatMessage } from './entities/chat-messages.entity';
+import { CreateChatMessageDto } from './dto/chat-messages.dto';
 
 
 @Injectable()

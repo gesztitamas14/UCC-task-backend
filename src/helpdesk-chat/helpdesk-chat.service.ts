@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ChatMessage } from 'src/chat/entities/chat.entity';
+import { ChatMessage } from 'src/chat-messages/entities/chat-messages.entity';
 import { In, Repository } from 'typeorm';
 import { Chat, ChatStatus } from './entities/helpdesk-chat.entity';
 import { User } from 'src/users/user.entity';
-import { CreateChatMessageDto } from 'src/chat/dto/chat.dto';
+
 import { KnowledgeBaseEntry } from 'src/knowledge-base/entities/knowledge-base.entity';
-import { ChatService } from 'src/chat/chat.service';
+import { ChatService } from 'src/chat-messages/chat-messages.service';
 import { BotMatchingService } from 'src/bot-matching/bot-matching.service';
+import { CreateChatMessageDto } from 'src/chat-messages/dto/chat-messages.dto';
 
 
 @Injectable()
