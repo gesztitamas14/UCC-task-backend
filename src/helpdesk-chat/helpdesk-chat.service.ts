@@ -96,11 +96,11 @@ export class HelpdeskChatService {
 
     chat = await this.chatRepository.save(chat);
 
-    this.chatMessageRepository.save({
+    await this.chatMessageRepository.save({
       chat_id: chat.id,
       sender_role: 'HELP_DESK',
       message: `
-      Hi! You are talking with the UCC_TASK's bot operator<br>
+      Hi! You are talking with the UCC TASK's bot operator<br>
       How can I help you?<br>
       <br>
       If you wish to talk to a human operator, type: <b>human operator</b>.
