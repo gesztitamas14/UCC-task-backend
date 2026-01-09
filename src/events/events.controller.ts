@@ -4,7 +4,7 @@ import { JwtAuthGuard } from '../auth/jwt.guard';
 
 export class CreateEventDto {
   title: string;
-  occurrence_datetime: string; // string marad
+  occurrence_datetime: string;
   description?: string;
 }
 
@@ -19,7 +19,6 @@ export class EventsController {
   }
 
   @Post()
-  @UseGuards(JwtAuthGuard)
   createEvent(@Req() req, @Body() createEventDto: CreateEventDto) {
     return this.eventsService.create(req.user, createEventDto);
   }

@@ -1,12 +1,14 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, UseGuards } from '@nestjs/common';
 import { ChatService } from './chat-messages.service';
 import { CreateChatMessageDto } from './dto/chat-messages.dto';
 
 import { HelpdeskChatService } from 'src/helpdesk-chat/helpdesk-chat.service';
 import { ChatMessage } from './entities/chat-messages.entity';
+import { JwtAuthGuard } from 'src/auth/jwt.guard';
 
 
 @Controller('api/chat')
+@UseGuards(JwtAuthGuard)
 export class ChatController {
   constructor(private chatService: ChatService, private readonly helpdeskChatService: HelpdeskChatService,) {}
 
